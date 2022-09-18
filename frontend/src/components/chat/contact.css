@@ -1,0 +1,22 @@
+.details {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  /* background-color: red; */
+  width: 18vw;
+  height: 7vh;
+  margin-left: 0.9rem;
+}
+
+.DPImage {
+  border-radius: 50%;
+  width: 3.5vw;
+}
+
+.message {
+  color: grey;
+  display: flex;
+  font-size: 1rem;
+  align-items: center;
+}
