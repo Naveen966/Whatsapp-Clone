@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./signUp.css";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export default function signUp() {
+export default function SignUp() {
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phNumber, setPhNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cPassword, setCPassword] = useState("");
+
   return (
     <>
       <div className="mainContainer">
@@ -23,6 +30,10 @@ export default function signUp() {
                   name="firstName"
                   id="firstName"
                   className="inputs"
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
                 />
               </div>
 
@@ -37,6 +48,10 @@ export default function signUp() {
                   name="lastName"
                   id="lastName"
                   className="inputs"
+                  value={lastName}
+                  onChange={(e) => {
+                    setLastName(e.target.value);
+                  }}
                 />
               </div>
             </div>
@@ -54,6 +69,10 @@ export default function signUp() {
                   name="phNumber"
                   id="phNumber"
                   className="inputs"
+                  value={phNumber}
+                  onChange={(e) => {
+                    setPhNumber(e.target.value);
+                  }}
                 />
               </div>
 
@@ -68,6 +87,10 @@ export default function signUp() {
                   name="email"
                   id="emailID"
                   className="inputs"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                 />
               </div>
             </div>
@@ -85,6 +108,10 @@ export default function signUp() {
                   name="password"
                   id="hiddenPassword"
                   className="inputs"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                 />
               </div>
 
@@ -99,6 +126,10 @@ export default function signUp() {
                   name="confirm"
                   id="confirmPassword"
                   className="inputs"
+                  value={cPassword}
+                  onChange={(e) => {
+                    setCPassword(e.target.value);
+                  }}
                 />
               </div>
             </div>

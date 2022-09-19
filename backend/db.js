@@ -12,24 +12,22 @@ mongoose
   });
 
 async function mainDataExecutive() {
-  // const {fName,lName,phNumber,email,password,cPassword} = user
-
-  try {
-    const results = await UserSchema({
-      fName: "rahul",
-      lName: "Kumar",
-      phNumber: 1238802813,
-      email: "rahulhkumar9600@gmail.com",
-      password: "12sdf51ou45ssdlfjf4",
-      cPassword: "1251asdou45sdfasf4",
-    });
-    const mainResult = await results
-      .save()
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error));
-  } catch {
-    console.log("function is not working well");
-  }
+  // try {
+  //   const results = await UserSchema({
+  //     fName: fName,
+  //     lName: lName,
+  //     phNumber: phNumber,
+  //     email: email,
+  //     password: password,
+  //     cPassword: cPassword,
+  //   });
+  //   const mainResult = await results
+  //     .save()
+  //     .then((data) => console.log(data))
+  //     .catch((error) => console.log(error));
+  // } catch {
+  //   console.log("function is not working well");
+  // }
 }
 
 module.exports = mainDataExecutive;
