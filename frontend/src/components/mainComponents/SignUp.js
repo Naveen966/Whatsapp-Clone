@@ -10,6 +10,28 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [cPassword, setCPassword] = useState("");
 
+  async function postData() {
+    // const { name, lastName, phNumber, email, password, cPassword } = use;
+
+    const res = await fetch("http://localhost:5000/", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: {
+        name: name,
+        lastName: lastName,
+        phNumber: phNumber,
+        email: email,
+        password: password,
+        cPassword: cPassword,
+      },
+    });
+
+    const data = await res.json();
+    console.log(data);
+  }
+
   return (
     <>
       <div className="mainContainer">
@@ -135,7 +157,7 @@ export default function SignUp() {
             </div>
             {/* end of form filed */}
             <div>
-              <button type="submit" className="ID">
+              <button type="submit" className="ID" onClick={postData}>
                 Create
               </button>
             </div>

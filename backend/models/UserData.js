@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userData = new mongoose.Schema({
+const data = new mongoose.Schema({
   fName: {
     type: String,
     require: true,
@@ -28,6 +28,6 @@ const userData = new mongoose.Schema({
   },
 });
 
-const Data = mongoose.model("userData", userData);
+const UserData = mongoose.model("userData", data);
 
-module.exports = Data;
+module.exports = UserData;
