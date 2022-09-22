@@ -10,26 +10,24 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [cPassword, setCPassword] = useState("");
 
-  async function postData() {
-    // const { name, lastName, phNumber, email, password, cPassword } = use;
-
-    const res = await fetch("http://localhost:5000/", {
+  function postData() {
+    fetch("http://localhost:5000/api/auth", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: {
-        name: name,
+      body: JSON.stringify({
+        fname: name,
         lastName: lastName,
         phNumber: phNumber,
         email: email,
         password: password,
         cPassword: cPassword,
-      },
-    });
-
-    const data = await res.json();
-    console.log(data);
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
   }
 
   return (
