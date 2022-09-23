@@ -4,12 +4,12 @@ const router = app.Router();
 const UserData = require("../models/UserData");
 
 const authenticate = router.post("/", async (req, res) => {
-  const { fName, lName, email, phoneNumber, password, cPassword } = req.body;
+  const { fName, lName, email, phNumber, password, cPassword } = req.body;
 
   const result = await UserData({
     fName: fName,
     lName: lName,
-    phNumber: phoneNumber,
+    phNumber: phNumber,
     email: email,
     password: password,
     cPassword: cPassword,

@@ -10,22 +10,22 @@ const data = new mongoose.Schema({
   phNumber: {
     type: Number,
     require: true,
-    // unique: true,
+    unique: true,
   },
   email: {
     type: String,
     require: true,
-    // unique: true,
+    unique: true,
   },
   password: {
     type: String,
     require: true,
-    // unique: true,
+    unique: true,
   },
   cPassword: {
     type: String,
     require: true,
-    // unique: true,
+    unique: true,
   },
 });
 
