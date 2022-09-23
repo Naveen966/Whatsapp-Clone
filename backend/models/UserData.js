@@ -6,25 +6,26 @@ const data = new mongoose.Schema({
     require: true,
   },
   lName: String,
+
   phNumber: {
     type: Number,
     require: true,
-    unique: true,
+    // unique: true,
   },
   email: {
     type: String,
     require: true,
-    unique: true,
+    // unique: true,
   },
   password: {
     type: String,
     require: true,
-    unique: true,
+    // unique: true,
   },
   cPassword: {
     type: String,
     require: true,
-    unique: true,
+    // unique: true,
   },
 });
 

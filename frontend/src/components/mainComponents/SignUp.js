@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function SignUp() {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [phNumber, setPhNumber] = useState("");
+  const [phoneNumber, setPhNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cPassword, setCPassword] = useState("");
@@ -17,9 +17,9 @@ export default function SignUp() {
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        fname: name,
-        lastName: lastName,
-        phNumber: phNumber,
+        fName: name,
+        lName: lastName,
+        phNumber: phoneNumber,
         email: email,
         password: password,
         cPassword: cPassword,
@@ -28,6 +28,9 @@ export default function SignUp() {
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
+
+    // const data = await res.json();
+    // console.log(data);
   }
 
   return (
@@ -51,9 +54,7 @@ export default function SignUp() {
                   id="firstName"
                   className="inputs"
                   value={name}
-                  onChange={(e) => {
-                    setName(e.target.value);
-                  }}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
 
@@ -69,9 +70,7 @@ export default function SignUp() {
                   id="lastName"
                   className="inputs"
                   value={lastName}
-                  onChange={(e) => {
-                    setLastName(e.target.value);
-                  }}
+                  onChange={(e) => setLastName(e.target.value)}
                 />
               </div>
             </div>
@@ -89,10 +88,8 @@ export default function SignUp() {
                   name="phNumber"
                   id="phNumber"
                   className="inputs"
-                  value={phNumber}
-                  onChange={(e) => {
-                    setPhNumber(e.target.value);
-                  }}
+                  value={phoneNumber}
+                  onChange={(e) => setPhNumber(e.target.value)}
                 />
               </div>
 
@@ -108,9 +105,7 @@ export default function SignUp() {
                   id="emailID"
                   className="inputs"
                   value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
             </div>
@@ -129,9 +124,7 @@ export default function SignUp() {
                   id="hiddenPassword"
                   className="inputs"
                   value={password}
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
 
@@ -147,9 +140,7 @@ export default function SignUp() {
                   id="confirmPassword"
                   className="inputs"
                   value={cPassword}
-                  onChange={(e) => {
-                    setCPassword(e.target.value);
-                  }}
+                  onChange={(e) => setCPassword(e.target.value)}
                 />
               </div>
             </div>
