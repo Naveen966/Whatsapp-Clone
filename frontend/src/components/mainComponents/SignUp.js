@@ -11,6 +11,18 @@ export default function SignUp() {
   const [cPassword, setCPassword] = useState("");
 
   async function postData() {
+    // data validation
+    const emailRegex =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const phNumberRegex = /^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$/;
+
+    if (!emailRegex.test(email) || !phNumberRegex) {
+      console.log(
+        "your credentials is not valid please enter valid credentials"
+      );
+    }
+
+    // all data sender
     const res = await fetch("http://localhost:5000/api/auth", {
       method: "POST",
       headers: {
