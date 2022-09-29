@@ -1,9 +1,8 @@
-const { json } = require("express");
-const app = require("express");
-const router = app.Router();
+const router = require("express").Router();
 const UserData = require("../models/UserData");
+const bcrypt = require("bcrypt");
 
-const authenticate = router.post("/", async (req, res) => {
+router.post("/", async (req, res) => {
   const { fName, lName, email, phNumber, password, cPassword } = req.body;
 
   if (
@@ -16,6 +15,7 @@ const authenticate = router.post("/", async (req, res) => {
   ) {
     console.log("please recheck your credentials");
   } else {
+    // const corruptedPassword = await bcrypt.hash(password);
     const result = await UserData({
       fName: fName,
       lName: lName,
@@ -30,4 +30,4 @@ const authenticate = router.post("/", async (req, res) => {
   }
 });
 
-module.exports = authenticate;
+module.exports = router;

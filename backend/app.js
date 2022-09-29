@@ -8,7 +8,8 @@ connectToMongoose();
 
 app.use(cors());
 app.use(express.json());
-app.use("/api/auth", require("./routes/auth"));
+app.use("/api/auth/signup", require("./routes/auth"));
+app.use("/api/login", require("./routes/login"));
 
 app.listen(PORT, () => {
   console.log(`the server is running on https://localhost:${PORT}`);

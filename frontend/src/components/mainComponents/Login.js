@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./login.css";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Logging() {
+  const [verifiedEmail, setVerifiedEmail] = useState("");
+  const [verifiedPassword, setVerifiedPassword] = useState("");
+
+  const check = () => {
+    fetch("http://localhost:5000/api/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        verifiedEmail: verifiedEmail,
+        verifiedPassword: verifiedPassword,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <>
       <div className="LoginBox">
@@ -15,7 +34,15 @@ export default function Logging() {
               <b>
                 <span className="inputEmail">Email</span>
               </b>
-              <input type="email" name="email" id="email" />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={verifiedEmail}
+                onChange={(e) => {
+                  setVerifiedEmail(e.target.value);
+                }}
+              />
             </div>
 
             {/* Password input is here  */}
@@ -23,11 +50,19 @@ export default function Logging() {
               <b>
                 <span className="inputPassword">Password</span>
               </b>
-              <input type="password" name="password" id="password" />
+              <input
+                type="password"
+                name="password"
+                id="password"
+                value={verifiedPassword}
+                onChange={(e) => {
+                  setVerifiedPassword(e.target.value);
+                }}
+              />
             </div>
           </div>
           <div className="loggingButton">
-            <button type="submit" className="ID">
+            <button type="submit" className="ID" onClick={check}>
               LOGIN
             </button>
             <div className="innerLoggingButton">
