@@ -7,7 +7,7 @@ export default function Logging() {
   const [verifiedPassword, setVerifiedPassword] = useState("");
 
   const check = () => {
-    fetch("http://localhost:5000/api/login", {
+    fetch("http://localhost:5000/api/auth/login", {
       method: "POST",
       headers: {
         "content-type": "application/json",

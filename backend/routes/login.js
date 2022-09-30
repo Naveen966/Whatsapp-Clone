@@ -6,8 +6,12 @@ router.post("/", async (req, res) => {
   const { verifiedPassword, verifiedEmail } = req.body;
   // login end points
   try {
+    const comparedPassword = await bcrypt.compare(
+      verifiedPassword,
+      UserData.password
+    );
     const doc = await UserData.find({
-      $and: [{ email: verifiedEmail }, { password: verifiedPassword }],
+      $and: [{ email: verifiedEmail }, { password: comparedPassword }],
     }).exec();
 
     if (doc) {

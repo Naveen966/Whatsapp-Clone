@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./signUp.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUp() {
   const [name, setName] = useState("");
@@ -10,6 +10,7 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [cPassword, setCPassword] = useState("");
 
+  const navigate = useNavigate();
   async function postData() {
     // data validation
     const emailRegex =
@@ -39,7 +40,10 @@ export default function SignUp() {
     });
 
     const data = await res.json();
-    console.log(data);
+
+    if (data) {
+      navigate("/login");
+    }
   }
 
   return (
