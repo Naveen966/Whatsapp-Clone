@@ -23,6 +23,7 @@ router.post("/", async (req, res) => {
       phNumber: phNumber,
       email: email,
       password: corruptedPassword,
+      cPassword: cPassword,
     });
 
     const mainResult = await result.save();

@@ -11,6 +11,7 @@ export default function SignUp() {
   const [cPassword, setCPassword] = useState("");
 
   const navigate = useNavigate();
+
   async function postData() {
     // data validation
     const emailRegex =

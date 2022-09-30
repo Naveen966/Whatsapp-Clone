@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "./login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Logging() {
   const [verifiedEmail, setVerifiedEmail] = useState("");
   const [verifiedPassword, setVerifiedPassword] = useState("");
+  const navigate = useNavigate();
 
-  const check = () => {
-    fetch("http://localhost:5000/api/auth/login", {
+  const check = async () => {
+    const res = await fetch("http://localhost:5000/api/auth/login", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -16,10 +17,11 @@ export default function Logging() {
         verifiedEmail: verifiedEmail,
         verifiedPassword: verifiedPassword,
       }),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error));
+    });
+    const data = await res.json();
+    if (data) {
+      navigate("/home");
+    }
   };
 
   return (
