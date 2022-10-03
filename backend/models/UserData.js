@@ -29,6 +29,6 @@ const data = new mongoose.Schema({
   },
 });
 
-const UserData = mongoose.model("userData", data);
+const UserData = mongoose.model("UserData", data);
 
 module.exports = UserData;

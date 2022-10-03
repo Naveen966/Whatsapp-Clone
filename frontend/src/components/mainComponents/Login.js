@@ -20,7 +20,8 @@ export default function Logging() {
     });
     const data = await res.json();
     if (data) {
-      navigate("/home");
+      // navigate("/home");
+      console.log("you have been registered");
     }
   };
 

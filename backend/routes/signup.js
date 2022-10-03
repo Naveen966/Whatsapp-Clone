@@ -7,6 +7,14 @@ router.post("/", async (req, res) => {
 
   const corruptedPassword = await bcrypt.hash(password, 10);
   const cCorruptedPassword = await bcrypt.hash(cPassword, 10);
+
+  const exists = await UserData.findOne({ fName: fName });
+  console.log(exists);
+
+  if (exists) {
+    console.log("please check your credentials again");
+  }
+
   if (
     !fName ||
     !email ||
@@ -23,7 +31,7 @@ router.post("/", async (req, res) => {
       phNumber: phNumber,
       email: email,
       password: corruptedPassword,
-      cPassword: cPassword,
+      cPassword: cCorruptedPassword,
     });
 
     const mainResult = await result.save();
