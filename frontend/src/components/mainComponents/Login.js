@@ -5,9 +5,11 @@ import { Link, useNavigate } from "react-router-dom";
 export default function Logging() {
   const [verifiedEmail, setVerifiedEmail] = useState("");
   const [verifiedPassword, setVerifiedPassword] = useState("");
+  const [data, setData] = useState("");
   const navigate = useNavigate();
 
   const check = async () => {
+    // all data sender
     const res = await fetch("http://localhost:5000/api/auth/login", {
       method: "POST",
       headers: {
@@ -18,10 +20,11 @@ export default function Logging() {
         verifiedPassword: verifiedPassword,
       }),
     });
-    const data = await res.json();
+
+    setData(await res.json());
+
     if (data) {
-      // navigate("/home");
-      console.log("you have been registered");
+      navigate("/");
     }
   };
 

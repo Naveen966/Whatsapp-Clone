@@ -8,13 +8,12 @@ router.post("/", async (req, res) => {
   // login end points
   try {
     const LoginUser = await UserData.findOne({ email: verifiedEmail });
-
     const compPassword = await bcrypt.compare(
       verifiedPassword,
       LoginUser.password
     );
     console.log(compPassword);
-    res.send();
+    res.json(compPassword == true);
   } catch {
     console.log("it's an error");
   }

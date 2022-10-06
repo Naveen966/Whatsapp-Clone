@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/mainComponents/Login";
 import SignUp from "./components/mainComponents/SignUp";
 import "./App.css";
@@ -14,7 +14,7 @@ function App() {
   function menu() {
     const menuBar = document.getElementById("menuShower");
     const mainSettingBox = document.getElementById("mainSettingBox");
-    if (ChatShowerCSS == "25%") {
+    if (ChatShowerCSS === "25%") {
       menuBar.style.transform = "rotate(180deg)";
       setTimeout(() => {
         mainSettingBox.style.display = "none";
@@ -34,7 +34,7 @@ function App() {
         <Header id="menuShower" menu={menu} />
         <Routes>
           <Route
-            path="home"
+            path="/"
             element={
               <Chats
                 contactWidth={ChatShowerCSS}

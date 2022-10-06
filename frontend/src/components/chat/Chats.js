@@ -1,6 +1,7 @@
 import React from "react";
 import ChatBoxHeader from "./ChatBoxHeader";
 import Contacts from "./Contact";
+import AddNewContacts from "../AddNewContacts";
 
 function Chats(props) {
   return (
@@ -82,6 +83,8 @@ function Chats(props) {
             </div>
           </div>
         </div>
+
+        <AddNewContacts />
       </div>
     </>
   );
